@@ -1,12 +1,6 @@
-package Research.MultiTool;
-
-public class Hammer extends Tool{
+public class Hammer extends Tool {
     public Hammer(Workable workable) {
         super(workable);
-    }
-
-    public Hammer() {
-        super.work();
     }
 
     @Override
