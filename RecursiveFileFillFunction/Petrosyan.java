@@ -1,5 +1,3 @@
-package Research.RecursiveFileFillFunction;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
@@ -17,13 +15,9 @@ public class Petrosyan {
             String command = scanner.nextLine();
 
             if (command.equals("c")) {
-                //Function injectFunction = new Injector();
-                //Runner.inspect(path, injectFunction);
                 Runner.inspect(path, new Injector());
             }
             if (Objects.equals(command, "d")) {
-                //Function deleteFunction = new Deleter();
-                //Runner.inspect(path, deleteFunction);
                 Runner.inspect(path, new Deleter());
             }
         }
