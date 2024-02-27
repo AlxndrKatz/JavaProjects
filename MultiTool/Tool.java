@@ -1,5 +1,3 @@
-package Research.MultiTool;
-
 public abstract class Tool implements Workable{
     Workable workable;
 
@@ -7,12 +5,12 @@ public abstract class Tool implements Workable{
         this.workable = workable;
     }
 
-    public Tool() {
-        work();
-    }
-
     @Override
     public void work() {
+        if (workable == null) {
 
+        } else {
+            workable.work();
+        }
     }
 }
