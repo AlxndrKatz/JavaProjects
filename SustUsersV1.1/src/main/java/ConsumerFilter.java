@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsumerFilter {
+public class ConsumerFilter implements Filter {
+   @Override
     public List<Consumer> filter(int maxWater, int maxGas, int maxElectro, List<Consumer> consumers) {
         List<Consumer> sustainableConsumers = new ArrayList<>();
         for (Consumer consumer : consumers) {

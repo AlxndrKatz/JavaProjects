@@ -1,7 +1,8 @@
 import java.io.*;
 import java.util.List;
 
-public class CsvWriter {
+public class CsvWriter implements DataWriter{
+    @Override
     public void write(List<Consumer> consumers, File inputFile) throws IOException {
         File sustList = new File("src/main/resources/sust.csv");
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
