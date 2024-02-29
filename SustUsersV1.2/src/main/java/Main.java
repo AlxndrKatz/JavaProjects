@@ -21,10 +21,11 @@ public class Main {
         maxConsumption[2] = MAX_ELECTRO;
 
         DataReader reader = new CsvReader(source);
+        DataFilter filter = new ConsumerFilter(maxConsumption);
+        DataWriter writer = new CsvWriter(source);
+
         List<DataObject> consumerList = reader.getData();
-        DataFilter filter = new ConsumerFilter(maxConsumption,consumerList);
-        List<DataObject> filteredData = filter.filter();
-        DataWriter writer = new CsvWriter(source, filteredData);
-        writer.write();
+        List<DataObject> filteredData = filter.filter(consumerList);
+        writer.write(filteredData);
     }
 }

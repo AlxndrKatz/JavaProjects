@@ -3,15 +3,13 @@ import java.util.List;
 
 public class ConsumerFilter implements DataFilter {
     int[] maxConsumption;
-    List<DataObject> consumers;
 
-
-    public ConsumerFilter(int[] maxConsumption, List<DataObject> consumers) {
+    public ConsumerFilter(int[] maxConsumption) {
         this.maxConsumption = maxConsumption;
-        this.consumers = consumers;
     }
+
     @Override
-    public List<DataObject> filter() {
+    public List<DataObject> filter(List<DataObject> consumers) {
         List<DataObject> sustainableConsumers = new ArrayList<>();
         for (DataObject consumer : consumers) {
             if (consumer.getWaterConsumption() < maxConsumption[0]

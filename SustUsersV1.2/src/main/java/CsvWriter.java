@@ -3,15 +3,13 @@ import java.util.List;
 
 public class CsvWriter implements DataWriter {
     public File inputFile;
-    List<DataObject> filteredData;
 
-    public CsvWriter(File inputFile, List<DataObject> filteredData) {
+    public CsvWriter(File inputFile) {
         this.inputFile = inputFile;
-        this.filteredData = filteredData;
     }
 
     @Override
-    public void write() throws IOException {
+    public void write(List<DataObject> filteredData) throws IOException {
         File sustList = new File("src/main/resources/sust.csv");
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(sustList))) {
