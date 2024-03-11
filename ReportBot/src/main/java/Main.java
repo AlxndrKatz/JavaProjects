@@ -32,16 +32,17 @@ public class Main {
     }
 
     public static String reportHistory(List<Report> list, String studentUserName, int count) {
-        return list.stream()
+        return return list.stream()
                 .filter(p -> Objects.equals(p.getStudentUserName(), studentUserName))
                 .sorted(Comparator.comparing(Report::getDate).reversed())
                 .limit(count)
                 .sorted(Comparator.comparing(Report::getDate))
-                .flatMap(r -> Stream.of(r.getStudentUserName() + "\n",
-                        r.getDate() +"\n",
-                        r.getHours() + "\n",
-                        r.getTitle() + "\n\n"))
-                .map(Objects::toString)
-                .reduce("", String::concat);
+                .flatMap(r -> Stream.of(
+                        r.getStudentUserName() + "\n"
+                                .concat(r.getDate() + "\n")
+                                .concat(r.getHours() + "\n")
+                                .concat(r.getTitle()))
+                )
+                .collect(Collectors.joining("\n-----------------\n"));
     }
 }
