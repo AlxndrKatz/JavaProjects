@@ -32,8 +32,11 @@ public class Main {
     }
 
     public static String reportHistory(List<Report> list, String studentUserName, int count) {
-        return list.stream().filter(p -> Objects.equals(p.getStudentUserName(), studentUserName))
-                .sorted(Comparator.comparing(Report::getDate)).limit(count)
-                .map(Report::toString).reduce("", String::concat);
+        return list.stream()
+                .filter(p -> Objects.equals(p.getStudentUserName(), studentUserName))
+                .sorted(Comparator.comparing(Report::getDate))
+                .limit(count)
+                .map(Report::toString)
+                .reduce("", String::concat);
     }
 }
