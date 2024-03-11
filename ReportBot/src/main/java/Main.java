@@ -37,7 +37,11 @@ public class Main {
                 .sorted(Comparator.comparing(Report::getDate).reversed())
                 .limit(count)
                 .sorted(Comparator.comparing(Report::getDate))
-                .map(Report::toString)
+                .flatMap(r -> Stream.of(r.getStudentUserName() + "\n",
+                        r.getDate() +"\n",
+                        r.getHours() + "\n",
+                        r.getTitle() + "\n\n"))
+                .map(Objects::toString)
                 .reduce("", String::concat);
     }
 }
