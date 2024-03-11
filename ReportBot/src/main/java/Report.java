@@ -35,12 +35,15 @@ public class Report {
         return title;
     }
 
-    @Override
-    public String toString() {
-        return studentUserName + "\n" +
-                date + "\n" +
-                hours + "\n" +
-                title + "\n-----------------\n";
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Report{" +
+                "id=" + id +
+                ", studentUserName='" + studentUserName + '\'' +
+                ", hours=" + hours +
+                ", date=" + date +
+                ", title='" + title + '\'' +
+                '}';
     }
 
     @Override
